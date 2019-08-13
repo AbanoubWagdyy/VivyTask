@@ -5,11 +5,11 @@ import com.vivy.R
 import javax.inject.Inject
 import com.vivy.di.qualifiers.ViewModelInjection
 import com.vivy.di.ViewModelInjectionField
-import com.vivy.ui.BaseFragment
+import com.vivy.di.base.BaseFragment
 
 class SearchFragment : BaseFragment() {
 
-    override fun layoutRes() = R.layout.fragment_home
+    override fun layoutRes() = R.layout.fragment_search
 
     companion object {
         fun newInstance(): SearchFragment {

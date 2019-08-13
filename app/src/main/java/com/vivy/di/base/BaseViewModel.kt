@@ -1,4 +1,4 @@
-package com.vivy.ui
+package com.vivy.di.base
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel

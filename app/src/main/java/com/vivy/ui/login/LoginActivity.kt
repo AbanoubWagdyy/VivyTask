@@ -1,17 +1,14 @@
 package com.vivy.ui.login
 
-import android.content.Context
 import javax.inject.Inject
 import android.os.Bundle
-import android.util.Log
-import android.widget.Toast
 import androidx.lifecycle.Observer
 import com.google.android.material.snackbar.Snackbar
 import com.vivy.R
 import com.vivy.data.network.ServiceApi
 import com.vivy.di.ViewModelInjectionField
 import com.vivy.di.qualifiers.ViewModelInjection
-import com.vivy.ui.BaseActivity
+import com.vivy.di.base.BaseActivity
 
 import com.vivy.utils.DialogUtils
 import com.vivy.utils.INVALID_CREDENTIALS

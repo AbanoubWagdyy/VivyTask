@@ -1,12 +1,9 @@
 package com.vivy.ui.login
 
-import android.app.Application
-import android.util.Log
 import androidx.lifecycle.MutableLiveData
-import com.vivy.R
 import com.vivy.data.model.Token
 import javax.inject.Inject
-import com.vivy.ui.BaseViewModel
+import com.vivy.di.base.BaseViewModel
 import com.vivy.utils.BASE_LOGIN_URL
 import com.vivy.utils.INVALID_PASSWORD
 import com.vivy.utils.INVALID_USERNAME
