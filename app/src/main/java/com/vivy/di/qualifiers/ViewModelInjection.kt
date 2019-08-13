@@ -1,4 +1,4 @@
-package com.com.starter_project.di.qualifiers
+package com.vivy.di.qualifiers
 
 import javax.inject.Qualifier
 

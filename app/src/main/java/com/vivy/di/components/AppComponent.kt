@@ -1,10 +1,12 @@
-package com.com.starter_project.di.components
+package com.vivy.di.components
 
 import android.app.Application
-import com.com.starter_project.App
-import com.com.starter_project.di.modules.ActivityInjectorsModule
-import com.com.starter_project.di.modules.FragmentInjectorsModule
-import com.com.starter_project.di.modules.AppModule
+import android.content.Context
+import com.vivy.App
+import com.vivy.di.modules.ActivityInjectorsModule
+import com.vivy.di.modules.FragmentInjectorsModule
+import com.vivy.di.modules.AppModule
+import com.vivy.di.modules.NetworkModule
 import dagger.BindsInstance
 import dagger.Component
 import dagger.android.AndroidInjector
@@ -17,6 +19,7 @@ import javax.inject.Singleton
         AndroidSupportInjectionModule::class,
         ActivityInjectorsModule::class,
         FragmentInjectorsModule::class,
+        NetworkModule::class,
         AppModule::class]
 )
 interface AppComponent : AndroidInjector<App> {
@@ -25,7 +28,7 @@ interface AppComponent : AndroidInjector<App> {
     interface Builder {
         @BindsInstance
         fun application(application: Application): Builder
-
+        fun network(networkModule : NetworkModule): Builder
         fun build(): AppComponent
     }
 }

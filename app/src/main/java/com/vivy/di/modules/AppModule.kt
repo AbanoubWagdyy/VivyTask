@@ -1,8 +1,8 @@
-package com.com.starter_project.di.modules
+package com.vivy.di.modules
 
 import android.app.Application
 import android.content.Context
-import com.com.starter_project.App
+import com.vivy.App
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
@@ -17,5 +17,4 @@ class AppModule {
     @Provides
     @Singleton
     fun provideApplicationContext(app: App): Context = app.applicationContext
-
 }

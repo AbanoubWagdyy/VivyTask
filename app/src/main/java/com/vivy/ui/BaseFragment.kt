@@ -1,4 +1,4 @@
-package com.com.starter_project.ui
+package com.vivy.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater

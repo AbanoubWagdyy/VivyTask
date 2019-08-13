@@ -1,12 +1,17 @@
-package com.com.starter_project.di.modules
+package com.vivy.di.modules
 
-import com.com.starter_project.ui.main.MainActivity
-import com.com.starter_project.ui.main.MainModule
+import com.vivy.ui.login.LoginModule
+import com.vivy.ui.login.LoginActivity
+import com.vivy.ui.splash.SplashActivity
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 
 @Module
 abstract class ActivityInjectorsModule {
-    @ContributesAndroidInjector(modules = [MainModule::class])
-    abstract fun mainActivityInjector(): MainActivity
+
+    @ContributesAndroidInjector
+    abstract fun splashActivityInjector(): SplashActivity
+
+    @ContributesAndroidInjector(modules = [LoginModule::class])
+    abstract fun loginActivityInjector(): LoginActivity
 }

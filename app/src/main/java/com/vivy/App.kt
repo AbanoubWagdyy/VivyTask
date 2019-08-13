@@ -1,11 +1,10 @@
-package com.com.starter_project
+package com.vivy
 
 import android.app.Activity
-import android.app.Application
-import com.com.starter_project.di.components.DaggerAppComponent
+import com.vivy.di.components.DaggerAppComponent
+import com.vivy.di.modules.NetworkModule
 import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
-import dagger.android.DispatchingAndroidInjector_Factory
 import dagger.android.support.DaggerApplication
 import javax.inject.Inject
 
@@ -24,6 +23,7 @@ class App : DaggerApplication() {
         DaggerAppComponent
             .builder()
             .application(this)
+            .network(NetworkModule)
             .build()
             .inject(this)
     }

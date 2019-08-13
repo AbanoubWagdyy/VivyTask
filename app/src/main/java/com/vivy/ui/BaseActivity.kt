@@ -1,4 +1,4 @@
-package com.com.starter_project.ui
+package com.vivy.ui
 
 import dagger.android.support.DaggerAppCompatActivity
 import android.os.Bundle

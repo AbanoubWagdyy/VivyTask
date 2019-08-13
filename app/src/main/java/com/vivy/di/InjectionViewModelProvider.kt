@@ -1,4 +1,4 @@
-package com.com.starter_project.di
+package com.vivy.di
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
@@ -11,8 +11,7 @@ import kotlin.reflect.KClass
 typealias ViewModelInjectionField<T> = dagger.Lazy<T>
 
 class InjectionViewModelProvider<VM : ViewModel> @Inject constructor(
-    private val lazyViewModel: dagger.Lazy<VM>
-) {
+    private val lazyViewModel: dagger.Lazy<VM>) {
 
     @Suppress("UNCHECKED_CAST")
     private val viewModelFactory = object : ViewModelProvider.Factory {
