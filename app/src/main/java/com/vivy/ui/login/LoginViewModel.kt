@@ -43,8 +43,13 @@ class LoginViewModel @Inject constructor() : BaseViewModel() {
                         errorObserver.value = UNKNOWN_ERROR
                 },
                 {
-                    val exception = it as HttpException
-                    errorObserver.value = exception.code()
+                    loadingObserver.value = false
+                    if (it is HttpException) {
+                        val exception = it
+                        errorObserver.value = exception.code()
+                    } else {
+                        errorObserver.value = UNKNOWN_ERROR
+                    }
                 }
             )
     }

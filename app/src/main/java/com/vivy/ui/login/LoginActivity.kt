@@ -1,5 +1,6 @@
 package com.vivy.ui.login
 
+import android.content.Intent
 import javax.inject.Inject
 import android.os.Bundle
 import androidx.lifecycle.Observer
@@ -9,11 +10,9 @@ import com.vivy.data.network.ServiceApi
 import com.vivy.di.ViewModelInjectionField
 import com.vivy.di.qualifiers.ViewModelInjection
 import com.vivy.di.base.BaseActivity
+import com.vivy.ui.search.SearchActivity
+import com.vivy.utils.*
 
-import com.vivy.utils.DialogUtils
-import com.vivy.utils.INVALID_CREDENTIALS
-import com.vivy.utils.INVALID_PASSWORD
-import com.vivy.utils.INVALID_USERNAME
 import kotlinx.android.synthetic.main.activity_login.*
 
 class LoginActivity : BaseActivity() {
@@ -39,6 +38,7 @@ class LoginActivity : BaseActivity() {
 
     private fun initUI() {
         login.setOnClickListener {
+            KeyboardUtils.hideKeyboard(this@LoginActivity)
             viewModelInjector.get().login(username.text.toString(), password.text.toString())
         }
     }
@@ -53,7 +53,7 @@ class LoginActivity : BaseActivity() {
         })
 
         viewModelInjector.get().responseObserver.observe(this, Observer { response ->
-
+            startSearchScreen()
         })
 
         viewModelInjector.get().errorObserver.observe(this, Observer {
@@ -69,17 +69,23 @@ class LoginActivity : BaseActivity() {
                 INVALID_CREDENTIALS -> {
                     Snackbar.make(
                         findViewById(android.R.id.content),
-                        getString(R.string.invalid_credentials), 3
+                        getString(R.string.invalid_credentials), 1000
                     ).show()
                 }
 
                 else -> {
                     Snackbar.make(
                         findViewById(android.R.id.content),
-                        getString(R.string.connection_error), 3
+                        getString(R.string.connection_error), 1000
                     ).show()
                 }
             }
         })
+    }
+
+    private fun startSearchScreen() {
+        val intent = Intent(this, SearchActivity::class.java)
+        startActivity(intent)
+        finish()
     }
 }
